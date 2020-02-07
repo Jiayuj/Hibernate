@@ -1,7 +1,7 @@
 package model;
 
 
-public class Equipos {
+public class Equipos  {
 
 
     private String Nombre;

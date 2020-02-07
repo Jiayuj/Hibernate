@@ -6,86 +6,74 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Table(name = "estadisticas")
-@Entity
-public class Estadisticas implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Column(name = "temporada", insertable = false, nullable = false)
+public class Estadisticas {
     private String temporada;
 
-    @Id
-    @Column(name = "jugador", insertable = false, nullable = false)
     private Integer jugador;
 
-    @Column(name = "Puntos_por_partido")
     private Float puntosPorPartido;
 
-    @Column(name = "Asistencias_por_partido")
     private Float asistenciasPorPartido;
 
-    @Column(name = "Tapones_por_partido")
     private Float taponesPorPartido;
 
-    @Column(name = "Rebotes_por_partido")
     private Float rebotesPorPartido;
 
-    public String getTemporada() {
+    public String gettemporada() {
         return temporada;
     }
 
-    public void setTemporada(String temporada) {
+    public void settemporada(String temporada) {
         this.temporada = temporada;
     }
 
-    public Integer getJugador() {
+    public Integer getjugador() {
         return jugador;
     }
 
-    public void setJugador(Integer jugador) {
+    public void setjugador(Integer jugador) {
         this.jugador = jugador;
     }
 
-    public Float getPuntosPorPartido() {
+    public Float getPuntos_por_partido() {
         return puntosPorPartido;
     }
 
-    public void setPuntosPorPartido(Float puntosPorPartido) {
+    public void setPuntos_por_partido(Float puntosPorPartido) {
         this.puntosPorPartido = puntosPorPartido;
     }
 
-    public Float getAsistenciasPorPartido() {
+    public Float getAsistencias_por_partido() {
         return asistenciasPorPartido;
     }
 
-    public void setAsistenciasPorPartido(Float asistenciasPorPartido) {
+    public void setAsistencias_por_partido(Float asistenciasPorPartido) {
         this.asistenciasPorPartido = asistenciasPorPartido;
     }
 
-    public Float getTaponesPorPartido() {
+    public Float getTapones_por_partido() {
         return taponesPorPartido;
     }
 
-    public void setTaponesPorPartido(Float taponesPorPartido) {
+    public void setTapones_por_partido(Float taponesPorPartido) {
         this.taponesPorPartido = taponesPorPartido;
     }
 
-    public Float getRebotesPorPartido() {
+    public Float getRebotes_por_partido() {
         return rebotesPorPartido;
     }
 
-    public void setRebotesPorPartido(Float rebotesPorPartido) {
+    public void setRebotes_por_partido(Float rebotesPorPartido) {
         this.rebotesPorPartido = rebotesPorPartido;
     }
 
     public String toString() {
-      return "Estadisticas{temporada=" + temporada + 
-        ", jugador=" + jugador + 
-        ", puntosPorPartido=" + puntosPorPartido + 
-        ", asistenciasPorPartido=" + asistenciasPorPartido + 
-        ", taponesPorPartido=" + taponesPorPartido + 
-        ", rebotesPorPartido=" + rebotesPorPartido + 
+      return "Estadisticas{temporada=" + temporada +
+        ", jugador=" + jugador +
+        ", puntosPorPartido=" + puntosPorPartido +
+        ", asistenciasPorPartido=" + asistenciasPorPartido +
+        ", taponesPorPartido=" + taponesPorPartido +
+        ", rebotesPorPartido=" + rebotesPorPartido +
         "}";
     }
 }

@@ -1,43 +1,30 @@
 package model;
 
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
 
-@Table(name = "jugadores")
-@Entity
-public class Jugadores implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Jugadores {
 
-    @Id
-    @Column(name = "codigo", insertable = false, nullable = false)
+
     private Integer codigo;
 
-    @Column(name = "Nombre")
     private String Nombre;
 
-    @Column(name = "Procedencia")
     private String Procedencia;
 
-    @Column(name = "Altura")
     private String Altura;
 
-    @Column(name = "Peso")
     private Integer Peso;
 
-    @Column(name = "Posicion")
     private String Posicion;
 
-    @Column(name = "Nombre_equipo")
-    private String nombreEquipo;
+    private String Nombre_equipo;
 
-    public Integer getCodigo() {
+    public Integer getcodigo() {
         return codigo;
     }
 
-    public void setCodigo(Integer codigo) {
+    public void setcodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -81,12 +68,12 @@ public class Jugadores implements Serializable {
         this.Posicion = Posicion;
     }
 
-    public String getNombreEquipo() {
-        return nombreEquipo;
+    public String getNombre_equipo() {
+        return Nombre_equipo;
     }
 
-    public void setNombreEquipo(String nombreEquipo) {
-        this.nombreEquipo = nombreEquipo;
+    public void setNombre_equipo(String nombreEquipo) {
+        this.Nombre_equipo = nombreEquipo;
     }
 
     public String toString() {
@@ -96,7 +83,7 @@ public class Jugadores implements Serializable {
         ", Altura=" + Altura + 
         ", Peso=" + Peso + 
         ", Posicion=" + Posicion + 
-        ", nombreEquipo=" + nombreEquipo + 
+        ", nombreEquipo=" + Nombre_equipo +
         "}";
     }
 }

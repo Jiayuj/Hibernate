@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+    <class name="Estadisticas" table="estadisticas">
+        <id name="temporada" column="temporada">
+            <generator class="native">
+            </generator>
+        </id>
+        <property name="Puntos_por_partido" />
+        <property name="Asistencias_por_partido" />
+        <property name="Tapones_por_partido" />
+        <property name="Rebotes_por_partido" />
+    </class>
+
+</hibernate-mapping>

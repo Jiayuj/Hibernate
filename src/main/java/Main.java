@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Main {
@@ -18,17 +19,25 @@ public class Main {
         Session session = sf.openSession();
         Transaction transaction = session.beginTransaction();
 
+        List<Jugadores> list = session.createQuery("FROM Jugadores").list();
+
+
         int opcion = menu.menu();
         while (opcion < 5) {
             switch (opcion) {
                 case 1:
-                    List<Jugadores> list = session.createQuery("FROM Jugadores").list();
                     list.stream().filter(line -> line.getNombre_equipo().equals("Cavaliers")).forEach(System.out::println);
-
                     opcion = menu.menu();
                     break;
                 case 2:
-                    System.out.println("2");
+                    int count= 0;
+                    try {
+                        for (Jugadores j : list) {
+                            if (j.getProcedencia().equals("Spain")) count++ ;
+                        }
+                    }catch (NullPointerException e){
+                        System.out.println(count);
+                    }
                     opcion = menu.menu();
                     break;
                 case 3:

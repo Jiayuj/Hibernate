@@ -34,8 +34,7 @@ public class Main {
         while (opcion < 5) {
             switch (opcion) {
                 case 1:
-                    jugadoresList = list.stream().filter( line -> line.getNombre_equipo().equals("Cavaliers")).collect(Collectors.toList());
-                    jugadoresList.forEach((k)->System.out.println("Procedencia : " + k.getProcedencia() + " Posición : " + k.getPosicion()));
+                    list.stream().filter( line -> line.getNombre_equipo().equals("Cavaliers")).collect(Collectors.toList()).forEach((k)->System.out.println("Procedencia : " + k.getProcedencia() + " Posición : " + k.getPosicion()));
                     opcion = menu.menu();
                     break;
                 case 2:
@@ -62,10 +61,7 @@ public class Main {
                     opcion = menu.menu();
                     break;
                 case 4:
-
-                    List <Estadisticas> estadisticasUse = estadisticasList.stream().filter( line -> line.getTemporada().equals("04/05") && line.getPuntosPorPartido() > 10).collect(Collectors.toList());
-                    estadisticasUse.forEach((k)->System.out.println(session.find(Jugadores.class,k.getJugador()).getNombre()));
-
+                    estadisticasList.stream().filter( line -> line.getTemporada().equals("04/05") && line.getPuntosPorPartido() > 10).collect(Collectors.toList()).forEach((k)->System.out.println(session.find(Jugadores.class,k.getJugador()).getNombre()));
                     opcion = menu.menu();
                     break;
                 default:

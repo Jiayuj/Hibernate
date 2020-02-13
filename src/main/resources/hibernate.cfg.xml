@@ -14,7 +14,6 @@
         <property name="hbm2ddl.auto">update</property>
 
         <mapping resource="Equipos.hbm.xml" />
-        <mapping class="model.Estadisticas"/>
         <mapping resource="Estadisticas.hbm.xml" />
         <mapping resource="Jugadores.hbm.xml" />
         <mapping resource="Partidos.hbm.xml" />

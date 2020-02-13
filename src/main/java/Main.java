@@ -20,7 +20,7 @@ public class Main {
         Transaction transaction = session.beginTransaction();
 
         List<Jugadores> list = session.createQuery("FROM Jugadores").list();
-
+        List<Estadisticas> estadisticasList = session.createQuery("FROM estadisticas").list();
 
         int opcion = menu.menu();
         while (opcion < 5) {
@@ -53,7 +53,7 @@ public class Main {
                     opcion = menu.menu();
                     break;
                 case 4:
-                    System.out.println("4");
+//                    estadisticasList.forEach(System.out::println);
                     opcion = menu.menu();
                     break;
                 default:

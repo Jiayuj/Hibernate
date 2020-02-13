@@ -64,9 +64,7 @@ public class Main {
                 case 4:
                     for (Estadisticas estadisticas : estadisticasList) {
                         if (estadisticas.getTemporada().equals("04/05") && estadisticas.getPuntosPorPartido() > 10){
-                            for (Jugadores jugadores : list) {
-                                if (jugadores.getcodigo() == estadisticas.getJugador()) System.out.println(jugadores.getNombre());
-                            }
+                            System.out.println( session.find(Jugadores.class,estadisticas.getJugador()).getNombre());
                         }
                     }
                     opcion = menu.menu();

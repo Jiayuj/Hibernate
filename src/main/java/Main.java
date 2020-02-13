@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -17,8 +18,6 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    static List<Jugadores> list;
-
     public static void main(String[] args) {
         Menu menu = new Menu();
         SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -26,16 +25,17 @@ public class Main {
         Session session = sf.openSession();
         Transaction transaction = session.beginTransaction();
 
-        list = session.createQuery("FROM Jugadores").list();
+        List<Jugadores> list = session.createQuery("FROM Jugadores").list();
         List<Estadisticas> estadisticasList = session.createQuery("FROM Estadisticas").list();
+
+        List <Jugadores> jugadoresList = new ArrayList<>();
 
         int opcion = menu.menu();
         while (opcion < 5) {
             switch (opcion) {
                 case 1:
-                    for (Jugadores jugadores : list) {
-                        if (jugadores.getNombre_equipo().equals("Cavaliers")) System.out.println("Procedencia: "+ jugadores.getProcedencia() + "  Posición: "+ jugadores.getPosicion());
-                    }
+                    jugadoresList = list.stream().filter( line -> line.getNombre_equipo().equals("Cavaliers")).collect(Collectors.toList());
+                    jugadoresList.forEach((k)->System.out.println("Procedencia : " + k.getProcedencia() + " Posición : " + k.getPosicion()));
                     opcion = menu.menu();
                     break;
                 case 2:
@@ -62,11 +62,10 @@ public class Main {
                     opcion = menu.menu();
                     break;
                 case 4:
-                    for (Estadisticas estadisticas : estadisticasList) {
-                        if (estadisticas.getTemporada().equals("04/05") && estadisticas.getPuntosPorPartido() > 10){
-                            System.out.println( session.find(Jugadores.class,estadisticas.getJugador()).getNombre());
-                        }
-                    }
+
+                    List <Estadisticas> estadisticasUse = estadisticasList.stream().filter( line -> line.getTemporada().equals("04/05") && line.getPuntosPorPartido() > 10).collect(Collectors.toList());
+                    estadisticasUse.forEach((k)->System.out.println(session.find(Jugadores.class,k.getJugador()).getNombre()));
+
                     opcion = menu.menu();
                     break;
                 default:
